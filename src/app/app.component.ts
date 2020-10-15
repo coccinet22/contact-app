@@ -15,7 +15,7 @@
 export class AppComponent {
   // Déclaration d'une variable /propriété
   title ='Gestion de contacts';
-  contactProfil = '';
+  contactProfil = null;
 
   // Déclaration d'un objet contact
   unContact = {
@@ -55,7 +55,11 @@ mesContacts=[
 // Permet d'afficher les infos d'un contact objet
 
 displayContact(contactCliqueParUtilisateur): void {
-  console.log(contactCliqueParUtilisateur);
+  //console.log(contactCliqueParUtilisateur);
   this.contactProfil =contactCliqueParUtilisateur;
+}
+//Cette fonction est automatiquement appelée par Angular lorsqu'un nouveau contact est créée
+addContact(contact): void {
+this.mesContacts.push(contact);
 }
 }

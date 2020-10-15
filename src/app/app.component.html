@@ -25,37 +25,23 @@
       <!-- https://getbootstrap.com/docs/4.5/components/list-group/#links-and-buttons -->
       <div class="list-group">
         <!-- on supprime la class active -->
-        <a href="#"
-        *ngFor="let contact of mesContacts"
-       (click)="displayContact(contact)"
-       [class.active]="contact === contactProfil"
-        class="list-group-item list-group-item-action ">
+        <a href="#" *ngFor="let contact of mesContacts"
+          (click)="displayContact(contact)"
+          [class.active]="contact === contactProfil"
+          class="list-group-item list-group-item-action">
           {{ contact.name }}
         </a>
 
-      </div>
+      </div><!--fin list group-->
+      <app-new-contact (newContactEvent)="addContact($event)"></app-new-contact>
+</div>
 
-    </div>
+   
 <!--  profil du  Contact-->
     <div class="col-sm-8">
-      <div class="jumbotron" *ngIf="contactProfil">
-        <h1 class="display-4">{{contactProfil.name}}
-        </h1>
-        <p class="lead">{{contactProfil.email}}.</p>
-        <p class="lead">{{contactProfil.tel}}</p>
-        <hr class="my-4">
-        <input type="text"
+      <!--Ici j'affiche le composant profil-->
 
-          [(ngModel)]="contactProfil.name"
-        class="form-control">
-
-      <div class="jumbotron" *ngIf="!contactProfil">
-        <h1 class="display-4">Mes contacts
-        </h1>
-        <p class="lead">Choississez un contact dans le menu à gauche.</p>
-
-        <hr class="my-4">
-      </div>
+        <app-profil [contactProfil]="contactProfil"></app-profil>
     </div>
 </div><!--row-->
 
